@@ -147,6 +147,12 @@
   <ItemGroup>
     <ClCompile Include="Program01.c" />
   </ItemGroup>
+  <ItemGroup>
+    <Object Include="miniz.obj" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="miniz.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

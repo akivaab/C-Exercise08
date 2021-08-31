@@ -18,6 +18,9 @@
     <ClCompile Include="Program01.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Unzip.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Object Include="miniz.obj" />

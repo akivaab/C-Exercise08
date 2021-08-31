@@ -146,6 +146,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Program01.c" />
+    <ClCompile Include="Unzip.c" />
   </ItemGroup>
   <ItemGroup>
     <Object Include="miniz.obj" />

@@ -1,3 +1,5 @@
+/*
+#include <string.h>
 #include "miniz.h"
 
 void unzip(const char *zipFile, const char *path)
@@ -26,7 +28,9 @@ void unzip(const char *zipFile, const char *path)
     }
     // Get root folder
     char *lastDir = "";
-    char *base = slash_path(get_path(file_stat.m_filename)); // path delim on end
+    //char *base = slash_path(get_path(file_stat.m_filename)); // path delim on end
+    char *base = strcat_s(path, sizeof(path), file_stat.m_filename);//
+    base = strcat_s(base, sizeof(base), "/"); // path delim on end//
 
     // Get and print information about each file in the archive.
     for (int i = 0; i < fileCount; i++)
@@ -40,7 +44,7 @@ void unzip(const char *zipFile, const char *path)
             continue; // skip directories for now
         }
         char *fileName = relative_path(base, file_stat.m_filename); // make path relative
-        char *destFile = combine_path(path, fileName); // make full dest path
+        char *destFile = strcat_s(path, fileName, sizeof(path)); // make full dest path
         auto newDir = get_path(fileName); // get the file's path
         if (newDir != lastDir)
         {
@@ -59,3 +63,4 @@ void unzip(const char *zipFile, const char *path)
     // Close the archive, freeing any resources it was using
     mz_zip_reader_end(&zip_archive);
 }
+*/

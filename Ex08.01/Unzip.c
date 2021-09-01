@@ -1,4 +1,3 @@
-/*
 #include <string.h>
 #include "miniz.h"
 
@@ -27,10 +26,10 @@ void unzip(const char *zipFile, const char *path)
         //return files;
     }
     // Get root folder
-    char *lastDir = "";
+    //char *lastDir = "";
     //char *base = slash_path(get_path(file_stat.m_filename)); // path delim on end
-    char *base = strcat_s(path, sizeof(path), file_stat.m_filename);//
-    base = strcat_s(base, sizeof(base), "/"); // path delim on end//
+    //char *base = strcat_s(path, sizeof(path), file_stat.m_filename);//
+    //base = strcat_s(base, sizeof(base), "/"); // path delim on end//
 
     // Get and print information about each file in the archive.
     for (int i = 0; i < fileCount; i++)
@@ -43,24 +42,24 @@ void unzip(const char *zipFile, const char *path)
         {
             continue; // skip directories for now
         }
-        char *fileName = relative_path(base, file_stat.m_filename); // make path relative
-        char *destFile = strcat_s(path, fileName, sizeof(path)); // make full dest path
-        auto newDir = get_path(fileName); // get the file's path
-        if (newDir != lastDir)
+        char *fileName = strcat_s(path, sizeof(path), file_stat.m_filename); // make path relative
+        //char *destFile = strcat_s(path, fileName, sizeof(path)); // make full dest path
+        //auto newDir = get_path(fileName); // get the file's path
+        /*if (fileName)
         {
             if (!os::dir::make(combine_path(path, newDir))) // creates the directory
             {
 
             }
-        }
-
-        if (mz_zip_reader_extract_to_file(&zip_archive, i, destFile, 0))
+        }*/
+        mz_zip_reader_extract_to_file(&zip_archive, i, fileName, 0);
+        /*if (mz_zip_reader_extract_to_file(&zip_archive, i, fileName, 0))
         {
             files.emplace_back(destFile);
-        }
+        }*/
     }
 
     // Close the archive, freeing any resources it was using
     mz_zip_reader_end(&zip_archive);
 }
-*/
+
